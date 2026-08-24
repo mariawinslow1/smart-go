@@ -36,7 +36,7 @@ export default function FreeAudit() {
         <div className="form-two"><div><label htmlFor="name">Имя *</label><input id="name" name="name" autoComplete="name" required /></div><div><label htmlFor="contact">Telegram или email *</label><input id="contact" name="contact" autoComplete="email" required /></div></div>
         <label htmlFor="message">Комментарий <span>необязательно</span></label><textarea id="message" name="message" rows="4" placeholder="Что особенно важно понять из отзывов?" />
         <label className="consent" htmlFor="consent"><input id="consent" name="consent" type="checkbox" required /><span>Согласен(на) на обработку данных для ответа на заявку.</span></label>
-        {error && <div className="form-error" role="alert">{error}</div>}<button className="btn btn-primary btn-full" disabled={status === 'sending'}>{status === 'sending' ? 'Отправляем…' : 'Запросить первичный разбор'}</button><p className="privacy-note">Отправляя форму, вы принимаете <Link to="/privacy">условия обработки данных</Link>.</p><p className="direct-contact">Или напишите напрямую: <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></p></form></>}</div>
+        {error && <div className="form-error" role="alert">{error}</div>}<button className="btn btn-primary btn-full" disabled={status === 'sending'}>{status === 'sending' ? 'Отправляем…' : 'Запросить первичный разбор'}</button><p className="privacy-note">Отправляя форму, вы принимаете <Link to="/privacy">условия обработки данных</Link>.</p><p className="direct-contact">Или напишите напрямую в <a href={`https://t.me/${siteConfig.telegram}`} target="_blank" rel="noreferrer">Telegram @{siteConfig.telegram}</a></p></form></>}</div>
     </div></section>
   </>;
 }
