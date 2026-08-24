@@ -3,7 +3,7 @@ export const siteConfig = {
   descriptor: 'Аналитика клиентских отзывов для бизнеса',
   email: '', // TODO: укажите рабочий email перед публикацией
   telegram: '', // TODO: укажите Telegram перед публикацией, если нужен
-  siteUrl: '', // TODO: укажите домен после публикации
+  siteUrl: 'https://maria-winslow.netlify.app',
   primaryCta: 'Запросить первичный разбор',
   auditPrice: '0 ₽',
 };
