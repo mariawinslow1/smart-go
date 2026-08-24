@@ -1,60 +1,42 @@
-import { useState } from 'react';
-import { Link, NavLink, Outlet } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { siteConfig } from '../config';
-import { ArrowUpRight, Close, Menu } from './Icons';
+import { Close, Menu } from './Icons';
 
-const nav = [
-  ['/', 'Главная'],
-  ['/method', 'Методика'],
-  ['/cases', 'Кейсы'],
-  ['/free-audit', 'Бесплатный аудит'],
-];
+const nav = [['/', 'Главная'], ['/method', 'Методика'], ['/cases', 'Кейсы'], ['/audit', 'Первичный разбор']];
 
 export default function Layout() {
   const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
+  useEffect(() => setOpen(false), [pathname]);
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
+
   return (
     <div className="site-shell">
+      <a className="skip-link" href="#main-content">Перейти к содержанию</a>
       <header className="topbar">
         <div className="container nav-wrap">
-          <Link to="/" className="brand" onClick={() => setOpen(false)}>
-            <span className="brand-mark">R</span>
-            <span>{siteConfig.brand}</span>
+          <Link to="/" className="brand" aria-label="Maria Winslow — главная">
+            <span className="wordmark">Maria Winslow</span>
+            <span className="brand-descriptor">Аналитика отзывов</span>
           </Link>
           <nav className="desktop-nav" aria-label="Основная навигация">
-            {nav.map(([to, label]) => (
-              <NavLink key={to} to={to} end={to === '/'} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>{label}</NavLink>
-            ))}
+            {nav.map(([to, label]) => <NavLink key={to} to={to} end={to === '/'} className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}>{label}</NavLink>)}
           </nav>
-          <Link className="nav-cta desktop-cta" to="/free-audit">Получить разбор <ArrowUpRight size={16}/></Link>
-          <button className="menu-btn" aria-label="Открыть меню" onClick={() => setOpen(!open)}>{open ? <Close/> : <Menu/>}</button>
+          <Link className="nav-cta desktop-cta" to="/audit">Запросить разбор</Link>
+          <button className="menu-btn" type="button" aria-label={open ? 'Закрыть меню' : 'Открыть меню'} aria-expanded={open} aria-controls="mobile-menu" onClick={() => setOpen(!open)}>{open ? <Close /> : <Menu />}</button>
         </div>
-        {open && (
-          <div className="mobile-panel">
-            <div className="container mobile-nav">
-              {nav.map(([to, label]) => <NavLink key={to} to={to} end={to === '/'} onClick={() => setOpen(false)}>{label}</NavLink>)}
-            </div>
-          </div>
-        )}
+        {open && <nav id="mobile-menu" className="mobile-panel" aria-label="Мобильная навигация"><div className="container mobile-nav">{nav.map(([to, label]) => <NavLink key={to} to={to} end={to === '/'}>{label}</NavLink>)}<Link className="btn btn-primary" to="/audit">Запросить разбор</Link></div></nav>}
       </header>
-      <main><Outlet /></main>
-      <footer className="footer">
-        <div className="container footer-grid">
-          <div>
-            <Link to="/" className="brand footer-brand"><span className="brand-mark">R</span><span>{siteConfig.brand}</span></Link>
-            <p className="muted footer-copy">Анализируем клиентскую обратную связь и превращаем её в понятные приоритеты для бизнеса.</p>
-          </div>
-          <div className="footer-links">
-            <Link to="/method">Методика</Link>
-            <Link to="/cases">Кейсы</Link>
-            <Link to="/free-audit">Бесплатный аудит</Link>
-            <Link to="/privacy">Конфиденциальность</Link>
-          </div>
-          <div className="footer-meta">
-            <span>© {new Date().getFullYear()} {siteConfig.brand}</span>
-            <span className="muted">Демо-кейсы отмечены отдельно и не выдаются за реальные проекты.</span>
-          </div>
-        </div>
-      </footer>
+      <main id="main-content"><Outlet /></main>
+      <footer className="footer"><div className="container footer-grid">
+        <div><Link to="/" className="wordmark footer-wordmark">{siteConfig.brand}</Link><p>{siteConfig.descriptor}</p></div>
+        <nav className="footer-links" aria-label="Навигация в подвале"><Link to="/method">Методика</Link><Link to="/cases">Кейсы</Link><Link to="/audit">Первичный разбор</Link><Link to="/privacy">Политика конфиденциальности</Link></nav>
+        <div className="footer-meta"><span>© {new Date().getFullYear()} {siteConfig.brand}</span><span>Демонстрационные кейсы отмечены и основаны на синтетических данных.</span></div>
+      </div></footer>
     </div>
   );
 }

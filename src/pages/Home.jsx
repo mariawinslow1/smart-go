@@ -1,58 +1,29 @@
 import { Link } from 'react-router-dom';
 import Section from '../components/Section';
-import CaseCard from '../components/CaseCard';
-import { ArrowRight, Bars, Check, Shield, Spark } from '../components/Icons';
+import Seo from '../components/Seo';
+import { ArrowRight, Check } from '../components/Icons';
+import { pageMeta } from '../config';
+
+const signals = ['Повторяющиеся жалобы', 'Причины недовольства', 'Сильные стороны', 'Проблемы сервиса', 'Проблемы продукта', 'Ожидания клиентов', 'Причины повторных обращений', 'Зоны первой проверки'];
+const cases = [
+  ['01', 'Сервис ремонта компьютеров', '284 отзыва', 'Коммуникация, сроки и прозрачность стоимости'],
+  ['02', 'Товар на маркетплейсе', '812 отзывов', 'Продукт, ожидания, доставка и первый запуск'],
+  ['03', 'Клининговый сервис', '356 отзывов', 'Стандарты качества, опоздания и повторные заказы'],
+];
 
 export default function Home() {
-  return (
-    <>
-      <section className="hero">
-        <div className="container hero-grid">
-          <div className="hero-copy">
-            <div className="eyebrow">Customer feedback intelligence</div>
-            <h1>Отзывы показывают, <span>где бизнес теряет клиентов.</span></h1>
-            <p className="hero-lead">Разбираем массив клиентской обратной связи, находим повторяющиеся проблемы и превращаем их в конкретный план: что исправить сначала, что сохранить и где спрятана точка роста.</p>
-            <div className="hero-actions">
-              <Link className="btn btn-primary" to="/free-audit">Получить бесплатный мини-аудит <ArrowRight/></Link>
-              <Link className="btn btn-ghost" to="/cases">Посмотреть кейсы</Link>
-            </div>
-            <div className="trust-line"><span><Check/> Без долгих внедрений</span><span><Check/> Понятный отчёт</span><span><Check/> Первичный разбор бесплатно</span></div>
-          </div>
-          <div className="insight-panel" aria-label="Пример аналитики">
-            <div className="panel-head"><span>Обзор обратной связи</span><span className="live-dot">DEMO</span></div>
-            <div className="score-row"><div><span className="mini-label">Сигнал</span><strong>Просрочки ремонта</strong></div><div className="score danger">HIGH</div></div>
-            <div className="bars-chart">
-              {[74, 56, 45, 31, 20].map((v, i) => <div className="bar-row" key={v}><span>{['Сроки','Коммуникация','Цена','Качество','Выдача'][i]}</span><div className="bar-track"><i style={{width:`${v}%`}}/></div><b>{v}</b></div>)}
-            </div>
-            <div className="quote-box">«Обещали позвонить вечером, но статус пришлось узнавать самому.»</div>
-            <div className="panel-foot"><div><strong>284</strong><span>отзыва</span></div><div><strong>9</strong><span>тем</span></div><div><strong>4</strong><span>приоритета</span></div></div>
-          </div>
-        </div>
-      </section>
-
-      <Section eyebrow="Что вы получите" title="Не облако слов. Решения, которые можно внедрить." intro="Мы отделяем шум от полезных сигналов и показываем не только что говорят клиенты, но и почему это важно для бизнеса.">
-        <div className="feature-grid">
-          <div className="feature"><span className="icon"><Bars/></span><h3>Повторяющиеся проблемы</h3><p>Группируем отзывы по темам и показываем, какие проблемы встречаются системно, а какие единичны.</p></div>
-          <div className="feature"><span className="icon"><Shield/></span><h3>Качество данных</h3><p>Однотипные, короткие и потенциально стимулированные отзывы учитываем отдельно, не принимая их за чистую выборку.</p></div>
-          <div className="feature"><span className="icon"><Spark/></span><h3>Приоритеты действий</h3><p>Выделяем изменения с максимальным потенциальным эффектом: что исправить первым, а что можно отложить.</p></div>
-        </div>
-      </Section>
-
-      <Section eyebrow="Демо-кейсы" title="Посмотрите, как выглядит результат" intro="Первые кейсы используют синтетические данные и честно отмечены как демонстрационные. Они показывают формат и глубину анализа.">
-        <div className="case-grid">
-          <CaseCard tag="DEMO · сервис" title="Ремонт компьютеров" text="Нашли узкие места в сроках, коммуникации с клиентом и прозрачности цены." stats={[["284","отзыва"],["9","тем"],["4","приоритета"]]} theme="case-green"/>
-          <CaseCard tag="DEMO · товар" title="Товар на маркетплейсе" text="Отделили проблемы продукта от доставки и выявили причины снижения повторных покупок." stats={[["812","отзывов"],["13","тем"],["6","решений"]]} theme="case-yellow"/>
-          <CaseCard tag="DEMO · услуга" title="Клининговый сервис" text="Выявили разницу качества между исполнителями и точки, влияющие на повторный заказ." stats={[["356","отзывов"],["8","тем"],["5","решений"]]} theme="case-blue"/>
-        </div>
-        <div className="center-action"><Link className="text-link" to="/cases">Открыть все кейсы <ArrowRight/></Link></div>
-      </Section>
-
-      <section className="cta-band">
-        <div className="container cta-grid">
-          <div><div className="eyebrow light">Бесплатный старт</div><h2>Дадим первые выводы до продажи полного аудита.</h2></div>
-          <div><p>Пришлите ссылку на отзывы. Мы разберём часть массива и покажем несколько повторяющихся проблем, сильных сторон и возможных действий.</p><Link to="/free-audit" className="btn btn-light">Получить мини-аудит <ArrowRight/></Link></div>
-        </div>
-      </section>
-    </>
-  );
+  return <>
+    <Seo {...pageMeta.home} path="/" />
+    <section className="hero"><div className="container hero-grid">
+      <div className="hero-copy"><div className="eyebrow">Аналитика клиентской обратной связи</div><h1>Находим закономерности в отзывах и превращаем их в решения для бизнеса</h1><p className="hero-lead">Анализируем клиентскую обратную связь, выделяем повторяющиеся проблемы и показываем, что стоит исправить в первую очередь.</p><div className="hero-actions"><Link className="btn btn-primary" to="/cases">Посмотреть примеры анализа <ArrowRight /></Link><Link className="btn btn-secondary" to="/audit">Запросить первичный разбор</Link></div></div>
+      <aside className="analysis-preview" aria-label="Демонстрационный фрагмент анализа"><div className="preview-top"><span>Фрагмент анализа</span><span className="demo-label">Синтетические данные</span></div><p className="preview-kicker">Сервис ремонта · 284 отзыва</p><h2>Статус заказа важнее самой задержки</h2><div className="priority-row"><span>Частота</span><div className="track"><i style={{ width: '72%' }} /></div><b>Высокая</b></div><div className="priority-row"><span>Влияние</span><div className="track"><i style={{ width: '86%' }} /></div><b>Высокое</b></div><div className="insight-note"><span>Вывод</span><p>Неопределённость усиливает недовольство. Уведомление при изменении срока — действие первой очереди.</p></div></aside>
+    </div></section>
+    <section className="logic"><div className="container logic-row">{['Отзывы', 'Закономерности', 'Приоритеты', 'Решения'].map((item, i) => <div key={item}><span>0{i + 1}</span><strong>{item}</strong>{i < 3 && <ArrowRight />}</div>)}</div></section>
+    <Section eyebrow="Что можно увидеть" title="Клиенты уже описывают, где бизнес работает хорошо, а где возникает трение." intro="Задача анализа — собрать отдельные впечатления в общую картину и не принять единичный случай за систему."><div className="signal-grid">{signals.map((signal, i) => <div key={signal}><span>0{i + 1}</span><p>{signal}</p></div>)}</div></Section>
+    <Section eyebrow="Как строится работа" title="От массива отзывов — к ясной очередности действий." className="section-tinted"><div className="method-preview"><div><span>01</span><h3>Структурируем</h3><p>Приводим обратную связь к удобному виду и отделяем технический шум.</p></div><div><span>02</span><h3>Сопоставляем</h3><p>Ищем повторяющиеся темы, контекст, серьёзность и сильные стороны.</p></div><div><span>03</span><h3>Расставляем приоритеты</h3><p>Показываем, что проверить первым и почему это важно для клиента.</p></div></div><Link className="text-link" to="/method">Посмотреть методику <ArrowRight /></Link></Section>
+    <Section eyebrow="Примеры анализа" title="Демонстрационные кейсы показывают формат и глубину работы." intro="Все данные в примерах синтетические. Они не описывают реальных клиентов или подтверждённые результаты."><div className="case-preview-grid">{cases.map(([no, title, amount, text]) => <Link to="/cases" className="case-preview" key={no}><div><span className="case-no">{no}</span><span className="demo-label">Демонстрационный кейс</span></div><h3>{title}</h3><p>{text}</p><strong>{amount} <ArrowRight /></strong></Link>)}</div></Section>
+    <section className="data-section"><div className="container split-copy"><div><div className="eyebrow light">Качество данных</div><h2>Не все отзывы одинаково полезны для выводов.</h2></div><div><p>Подробное описание конкретной ситуации даёт больше информации, чем короткое «Всё отлично». Мы оцениваем содержательность, конкретику, повторяемость и необычную однородность формулировок.</p><p>Это не попытка объявить отдельный отзыв купленным. Цель — не принять шум за реальный голос клиента.</p><Link className="btn btn-light" to="/method">Как оцениваются отзывы</Link></div></div></section>
+    <Section eyebrow="Об аналитике" title="Понятные выводы вместо отчёта ради отчёта."><div className="about-row"><p>Работа строится вокруг структурирования обратной связи, поиска устойчивых закономерностей и перевода наблюдений в конкретные бизнес-рекомендации.</p><div>{['Без вымышленных результатов', 'Без технологического жаргона', 'С объяснением логики приоритета'].map(x => <span key={x}><Check />{x}</span>)}</div></div></Section>
+    <section className="cta-band"><div className="container split-copy"><div><div className="eyebrow light">Первичный разбор</div><h2>Начните с нескольких закономерностей в своих отзывах.</h2></div><div><p>Рассмотрим часть открытой обратной связи. Стоимость — 0 ₽, без обязательства заказывать полный аудит.</p><Link className="btn btn-light" to="/audit">Запросить первичный разбор <ArrowRight /></Link></div></div></section>
+  </>;
 }
