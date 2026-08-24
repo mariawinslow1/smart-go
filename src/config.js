@@ -1,7 +1,7 @@
 export const siteConfig = {
   brand: 'Maria Winslow',
   descriptor: 'Аналитика клиентских отзывов для бизнеса',
-  email: '', // TODO: укажите рабочий email перед публикацией
+  email: 'winslowmaria044@gmail.com',
   telegram: '', // TODO: укажите Telegram перед публикацией, если нужен
   siteUrl: 'https://maria-winslow.netlify.app',
   primaryCta: 'Запросить первичный разбор',

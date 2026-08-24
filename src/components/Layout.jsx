@@ -35,7 +35,7 @@ export default function Layout() {
       <footer className="footer"><div className="container footer-grid">
         <div><Link to="/" className="wordmark footer-wordmark">{siteConfig.brand}</Link><p>{siteConfig.descriptor}</p></div>
         <nav className="footer-links" aria-label="Навигация в подвале"><Link to="/method">Методика</Link><Link to="/cases">Кейсы</Link><Link to="/audit">Первичный разбор</Link><Link to="/privacy">Политика конфиденциальности</Link></nav>
-        <div className="footer-meta"><span>© {new Date().getFullYear()} {siteConfig.brand}</span><span>Демонстрационные кейсы отмечены и основаны на синтетических данных.</span></div>
+        <div className="footer-meta"><span>Связаться</span><a className="footer-email" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a><span>© {new Date().getFullYear()} {siteConfig.brand}</span><span>Демонстрационные кейсы отмечены и основаны на синтетических данных.</span></div>
       </div></footer>
     </div>
   );

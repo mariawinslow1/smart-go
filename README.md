@@ -46,7 +46,7 @@ npm run preview
 - Визуальная система и адаптивность: `src/styles.css`
 - Статическая копия полей формы для Netlify: `index.html`
 
-Перед публикацией заполните `email`, при необходимости `telegram`, и `siteUrl` в `src/config.js`. После указания `siteUrl` страницы будут получать canonical URL.
+Контактный `email`, при необходимости `telegram`, и публичный `siteUrl` настраиваются в `src/config.js`. После указания `siteUrl` страницы получают canonical URL.
 
 ## Публикация на Netlify
 
