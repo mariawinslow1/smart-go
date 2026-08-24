@@ -2,7 +2,7 @@ export const siteConfig = {
   brand: 'Maria Winslow',
   descriptor: 'Аналитика клиентских отзывов для бизнеса',
   email: 'winslowmaria044@gmail.com',
-  telegram: 'milonigame',
+  telegram: 'winslowmaria',
   siteUrl: 'https://maria-winslow.netlify.app',
   primaryCta: 'Запросить первичный разбор',
   auditPrice: '0 ₽',
