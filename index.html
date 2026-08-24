@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Анализ отзывов и голоса клиента: находим повторяющиеся проблемы, точки потери клиентов и приоритетные улучшения." />
+    <meta name="theme-color" content="#111111" />
+    <title>Review Lab — отзывы в решения</title>
+  </head>
+  <body>
+    <!-- Static form for Netlify build-time form detection.
+         The visible React form in /free-audit submits the same field names. -->
+    <form name="free-audit" method="POST" data-netlify="true" hidden>
+      <input type="hidden" name="form-name" value="free-audit" />
+      <input name="company" />
+      <input name="reviews" type="url" />
+      <input name="contact" />
+      <textarea name="message"></textarea>
+      <input name="consent" type="checkbox" />
+    </form>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
