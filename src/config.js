@@ -6,6 +6,8 @@ export const siteConfig = {
   siteUrl: 'https://maria-winslow.netlify.app',
   primaryCta: 'Получить 3 наблюдения',
   auditPrice: '0 ₽',
+  pilotPrice: '3 900 ₽',
+  extendedPrice: '8 900 ₽',
 };
 
 export const pageMeta = {

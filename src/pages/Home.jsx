@@ -3,7 +3,7 @@ import Section from '../components/Section';
 import Seo from '../components/Seo';
 import { ArrowRight, Check } from '../components/Icons';
 import ImpactCalculator from '../components/ImpactCalculator';
-import { pageMeta } from '../config';
+import { pageMeta, siteConfig } from '../config';
 
 const cases = [
   ['01', 'Ремонт техники', 'Клиентов злит не перенос срока, а отсутствие информации', 'Что менять: уведомления о статусе и цене'],
@@ -60,6 +60,16 @@ export default function Home() {
       <div className="deliverable-cards"><article><span>01</span><h3>Карта проблем</h3><p>Какие ситуации повторяются, на каком этапе возникают и что именно раздражает клиента.</p></article><article><span>02</span><h3>Сравнение с конкурентами</h3><p>Где вы сильнее рынка, где отстаёте и какие удачные практики можно адаптировать.</p></article><article><span>03</span><h3>Очередность изменений</h3><p>Что сделать сейчас, что проверить позже и на что пока не стоит тратить ресурсы.</p></article></div>
       <Link className="text-link" to="/method">Как я прихожу к выводам <ArrowRight /></Link>
     </Section>
+
+    <section className="pricing-section" id="pricing"><div className="container">
+      <div className="pricing-head"><div><div className="eyebrow">Форматы и стоимость</div><h2>Сначала проверьте качество. Потом выберите объём.</h2></div><p>Цена известна до начала работы. На сайте ничего не списывается: после бесплатных наблюдений я письменно подтверждаю объём, срок и стоимость.</p></div>
+      <div className="pricing-grid">
+        <article><div className="price-top"><span>Проверка подхода</span><strong>{siteConfig.auditPrice}</strong></div><h3>3 наблюдения</h3><ul><li><Check />Одна компания или товар</li><li><Check />Три проверяемых сигнала</li><li><Check />Ответ в Telegram или на email</li></ul><Link className="btn btn-secondary btn-full" to="/audit">Оставить ссылку</Link></article>
+        <article className="price-featured"><div className="price-top"><span>Платный пилот</span><strong>{siteConfig.pilotPrice}</strong></div><h3>Приоритеты на ваших данных</h3><ul><li><Check />До 150 доступных отзывов</li><li><Check />Ваша компания и один конкурент</li><li><Check />До пяти повторяющихся ситуаций</li><li><Check />Три действия по приоритету</li><li><Check />Письменный отчёт · до 4 рабочих дней</li></ul><Link className="btn btn-light btn-full" to="/audit">Начать с бесплатной проверки</Link></article>
+        <article><div className="price-top"><span>Расширенный анализ</span><strong>{siteConfig.extendedPrice}</strong></div><h3>Карта решений</h3><ul><li><Check />До 500 доступных отзывов</li><li><Check />Ваша компания и до трёх конкурентов</li><li><Check />Проблемы, сильные стороны и практики рынка</li><li><Check />Матрица приоритетов и план действий</li><li><Check />Письменный отчёт · до 7 рабочих дней</li></ul><Link className="btn btn-secondary btn-full" to="/audit">Получить первые наблюдения</Link></article>
+      </div>
+      <p className="pricing-note">Если публичных отзывов меньше указанного объёма, анализируется весь доступный массив. Если задача выходит за рамки выбранного формата, я сначала предложу новый объём и цену — без автоматического продолжения.</p>
+    </div></section>
 
     <Section eyebrow="Конкуренты" title="Не копировать лидера. Понять, за что его выбирают.">
       <div className="competitive-grid"><div className="competitive-intro"><p>Отзывы конкурентов показывают стандарт, с которым клиент уже сравнивает вас — даже если никогда об этом не говорит.</p><p>Я отделяю действительно ценные практики от красивых, но бесполезных деталей и показываю, что можно применить именно в вашем бизнесе.</p></div><div className="competitive-points"><div><span>01</span><h3>Ожидания рынка</h3><p>Что клиенты уже считают нормой и перестали воспринимать как преимущество.</p></div><div><span>02</span><h3>Причины выбора</h3><p>За какие конкретные детали сервиса конкурентов благодарят и рекомендуют.</p></div><div><span>03</span><h3>Свободные позиции</h3><p>Какие важные ожидания не закрывает ни один заметный игрок категории.</p></div></div></div>
