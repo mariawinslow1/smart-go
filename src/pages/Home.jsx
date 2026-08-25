@@ -41,6 +41,18 @@ export default function Home() {
 
     <section className="logic"><div className="container logic-row">{['Отзывы о вас', 'Отзывы о конкурентах', 'Причины потерь', 'План действий'].map((item, i) => <div key={item}><span>0{i + 1}</span><strong>{item}</strong>{i < 3 && <ArrowRight />}</div>)}</div></section>
 
+    <section className="demo-impact"><div className="container">
+      <div className="demo-impact-head"><div><div className="eyebrow light">Демонстрационный кейс</div><h2>Из сотен отзывов — в три понятных решения.</h2></div><p>Сервис ремонта техники · анализ отзывов компании и трёх конкурентов</p></div>
+      <div className="demo-impact-grid">
+        <div className="demo-before"><span className="demo-stage">До разбора</span><strong>430</strong><p>отзывов, которые невозможно оценить по одному среднему рейтингу</p><div className="demo-stats"><div><b>128</b><span>негативных и смешанных</span></div><div><b>17</b><span>разных формулировок жалоб</span></div></div></div>
+        <div className="demo-arrow" aria-hidden="true"><ArrowRight /></div>
+        <div className="demo-after"><span className="demo-stage">После анализа</span><div className="demo-result-list"><div><b>04</b><p>повторяющиеся причины недовольства</p></div><div><b>03</b><p>изменения с наибольшим приоритетом</p></div><div><b>01</b><p>практика конкурентов для адаптации</p></div></div></div>
+      </div>
+      <div className="demo-actions"><div><span>01</span><div><strong>Сообщать об изменении срока заранее</strong><p>Снижает количество обращений «что с моим заказом?» и жалоб на неизвестность.</p></div><em>Коммуникация</em></div><div><span>02</span><div><strong>Фиксировать новый срок в сообщении</strong><p>Даёт клиенту понятное обещание вместо устной договорённости.</p></div><em>Доверие</em></div><div><span>03</span><div><strong>Согласовывать цену до начала работ</strong><p>Убирает один из главных поводов для споров при выдаче техники.</p></div><em>Оценка сервиса</em></div></div>
+      <div className="demo-metrics"><span>Что отслеживать после внедрения</span><p>Жалобы на отсутствие статуса</p><p>Повторные звонки клиентов</p><p>Упоминания коммуникации в отзывах</p></div>
+      <p className="demo-disclaimer">Цифры используются для демонстрации формата анализа. Это не результат реального клиента и не обещание заранее известного эффекта.</p>
+    </div></section>
+
     <Section eyebrow="Практическая польза" title="После разбора вы будете знать ответы, а не просто количество упоминаний.">
       <div className="question-grid">{questions.map(([no, title, text]) => <article key={no}><span>{no}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
     </Section>
