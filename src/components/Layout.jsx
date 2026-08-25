@@ -13,6 +13,14 @@ export default function Layout() {
     document.body.style.overflow = open ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [open]);
+  useEffect(() => {
+    if (!open) return undefined;
+    const closeOnEscape = (event) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, [open]);
 
   return (
     <div className="site-shell">
@@ -29,8 +37,8 @@ export default function Layout() {
           <Link className="nav-cta desktop-cta" to="/audit">Получить 3 наблюдения</Link>
           <button className="menu-btn" type="button" aria-label={open ? 'Закрыть меню' : 'Открыть меню'} aria-expanded={open} aria-controls="mobile-menu" onClick={() => setOpen(!open)}>{open ? <Close /> : <Menu />}</button>
         </div>
-        {open && <nav id="mobile-menu" className="mobile-panel" aria-label="Мобильная навигация"><div className="container mobile-nav">{nav.map(([to, label]) => <NavLink key={to} to={to} end={to === '/'}>{label}</NavLink>)}<Link className="btn btn-primary" to="/audit">Получить 3 наблюдения</Link></div></nav>}
       </header>
+      {open && <nav id="mobile-menu" className="mobile-panel" aria-label="Мобильная навигация"><div className="container mobile-nav">{nav.slice(0, -1).map(([to, label], index) => <NavLink key={to} to={to} end={to === '/'}><span>0{index + 1}</span>{label}</NavLink>)}<Link className="btn btn-primary mobile-nav-cta" to="/audit">Получить 3 наблюдения</Link><p>Анализ отзывов и сравнение с конкурентами</p></div></nav>}
       <main id="main-content"><Outlet /></main>
       <footer className="footer"><div className="container footer-grid">
         <div><Link to="/" className="wordmark footer-wordmark">{siteConfig.brand}</Link><p>{siteConfig.descriptor}</p></div>

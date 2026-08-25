@@ -28,7 +28,7 @@ export default function Home() {
         <h1>Покажу, почему клиенты недовольны и что исправить первым</h1>
         <p className="hero-lead">Соберу отзывы о вашей компании и конкурентах, найду повторяющиеся причины недовольства и переведу их в конкретный план действий — без отчёта на сто страниц и общих советов.</p>
         <div className="hero-actions"><Link className="btn btn-primary" to="/audit">Получить 3 наблюдения бесплатно <ArrowRight /></Link><Link className="btn btn-secondary" to="/cases">Посмотреть примеры</Link></div>
-        <p className="hero-footnote">Нужна только ссылка на компанию или товар. Созвон не обязателен.</p>
+        <p className="hero-footnote">Чтобы начать, нужна только ссылка на компанию или товар.</p>
       </div>
       <aside className="analysis-preview" aria-label="Демонстрационный фрагмент разбора">
         <div className="preview-top"><span>Как выглядит вывод</span><span className="demo-label">Демонстрационный пример</span></div>
@@ -60,6 +60,6 @@ export default function Home() {
 
     <section className="data-section"><div className="container split-copy"><div><div className="eyebrow light">Когда это нужно</div><h2>Отзывы есть, а ясного решения всё ещё нет.</h2></div><div className="use-cases">{['Рейтинг снижается, но причины кажутся разрозненными', 'Жалобы повторяются, а команда спорит, что важнее', 'Нужно понять, почему конкурента рекомендуют чаще', 'Планируются изменения продукта, сервиса или карточки товара'].map(item => <p key={item}><Check />{item}</p>)}</div></div></section>
 
-    <section className="cta-band"><div className="container split-copy"><div><div className="eyebrow light">Бесплатный первый шаг</div><h2>Пришлите ссылку. Я найду три сигнала в открытых отзывах.</h2></div><div><p>Вы увидите качество работы до заказа полного анализа. Никаких обязательств и обязательного созвона.</p><Link className="btn btn-light" to="/audit">Получить первичный разбор <ArrowRight /></Link></div></div></section>
+    <section className="cta-band"><div className="container split-copy"><div><div className="eyebrow light">Бесплатный первый шаг</div><h2>Пришлите ссылку. Я найду три сигнала в открытых отзывах.</h2></div><div><p>Вы увидите качество работы до заказа полного анализа и сами решите, нужен ли полный разбор.</p><Link className="btn btn-light" to="/audit">Получить первичный разбор <ArrowRight /></Link></div></div></section>
   </>;
 }
