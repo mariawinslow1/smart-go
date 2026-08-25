@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import Section from '../components/Section';
 import Seo from '../components/Seo';
 import { ArrowRight, Check } from '../components/Icons';
+import ImpactCalculator from '../components/ImpactCalculator';
 import { pageMeta } from '../config';
 
 const questions = [
@@ -52,6 +53,8 @@ export default function Home() {
       <div className="demo-metrics"><span>Что отслеживать после внедрения</span><p>Жалобы на отсутствие статуса</p><p>Повторные звонки клиентов</p><p>Упоминания коммуникации в отзывах</p></div>
       <p className="demo-disclaimer">Цифры используются для демонстрации формата анализа. Это не результат реального клиента и не обещание заранее известного эффекта.</p>
     </div></section>
+
+    <ImpactCalculator />
 
     <Section eyebrow="Практическая польза" title="После разбора вы будете знать ответы, а не просто количество упоминаний.">
       <div className="question-grid">{questions.map(([no, title, text]) => <article key={no}><span>{no}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
