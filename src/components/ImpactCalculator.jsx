@@ -56,7 +56,7 @@ export default function ImpactCalculator() {
             <div className="calculator-main-result"><strong>{money.format(result.revenueAtRisk)}</strong><p>может недополучить бизнес на одной следующей покупке при среднем чеке {money.format(averageCheck)}</p></div>
             <div className="calculator-formula">{number.format(clients)} клиентов × {lostShare}% × {money.format(averageCheck)} = {money.format(result.revenueAtRisk)}</div>
             <div className="calculator-priorities"><span>Зачем анализировать отзывы</span><p><b>01</b>Найти конкретную ситуацию, после которой клиенты не хотят возвращаться.</p><p><b>02</b>Понять, как эту же ситуацию решают конкуренты.</p><p><b>03</b>Выбрать изменение, которое можно проверить первым.</p></div>
-            <Link className="btn btn-light btn-full" to="/audit">Получить 3 наблюдения по своим отзывам <ArrowRight /></Link>
+            <Link className="btn btn-light btn-full" to="/audit">Получить 1 наблюдение по своим отзывам <ArrowRight /></Link>
           </div>
         </div>
         <p className="calculator-note">Это пример одного возможного сценария, а не прогноз и не обещанный результат. Калькулятор считает только одну следующую покупку и не утверждает, что все недовольные клиенты обязательно уйдут.</p>
